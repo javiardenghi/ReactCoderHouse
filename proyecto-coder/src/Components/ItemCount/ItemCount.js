@@ -35,9 +35,11 @@ function setOnAdd() {
                     <br></br>
                     <Button variant="primary" onClick={setOnAdd}>Agregar</Button>
                 </Card.Body>
+                
             </Card>
         </div>
     )
 }
 
 export default ItemCount
+
