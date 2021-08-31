@@ -1,18 +1,21 @@
 import React from 'react'
 import Item from '../Item/Item'
+import Col from "react-bootstrap/Col"
+import Row from "react-bootstrap/Row"
+import Container from 'react-bootstrap/Container'
 
 
 function ItemList({lista}) {
-    console.log(lista)
     return (
-        <div className="d-flex justify-content-around  row">
+        
+            <Row>
             {
-            lista.map((elemento)=>
-            <Item id= {elemento.id} nombre={elemento.nombre} precio={elemento.precio} picturUrl={elemento.picturUrl}/>)
+            lista.map((elemento)=><Col>
+            <Item id= {elemento.id} nombre={elemento.nombre} precio={elemento.precio} picturUrl={elemento.picturUrl}/></Col>)
             }
-                
+            </Row>
            
-        </div>
+       
     )
 }
 

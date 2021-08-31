@@ -12,12 +12,12 @@ function Item({id, nombre,precio, picturUrl}) {
     return (
 
 
-    <Card style={{ width: '18rem' }}>
-        <div className="align-baseline">
+    <Card style={{ width: '18rem'}}  className=" mt-4 ">
+        <div className="row align-items-center " style={{ height: '18rem' } } >
             <Card.Img variant="top" src={picturUrl}  />
         </div>
         <Card.Body>
-            <Card.Title>{nombre}</Card.Title>
+            <Card.Title >{nombre}</Card.Title>
             <Card.Text >
                 {precio}
                 Some quick example text to build on the card title and make up the bulk of
