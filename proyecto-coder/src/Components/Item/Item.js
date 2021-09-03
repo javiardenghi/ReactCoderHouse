@@ -2,28 +2,30 @@ import React from 'react'
 import Card from "react-bootstrap/Card"
 import Button  from 'react-bootstrap/Button'
 import ItemCount from '../ItemCount/ItemCount'
+import { Link } from 'react-router-dom'
 
-function Item({id, nombre,precio, picturUrl}) {
+function Item({elemento}) {
     function onAdd() {
         alert("agregado!")
         
     }
-
+    
     return (
 
 
     <Card style={{ width: '18rem'}}  className=" mt-4 ">
         <div className="row align-items-center " style={{ height: '18rem' } } >
-            <Card.Img variant="top" src={picturUrl}  />
+            <Card.Img variant="top" src={elemento.picturUrl}  />
         </div>
         <Card.Body>
-            <Card.Title >{nombre}</Card.Title>
+            <Card.Title >{elemento.nombre}</Card.Title>
             <Card.Text >
-                {precio}
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                {elemento.precio}<br/>
+                {elemento.descripciones}
             </Card.Text>
-            <Button variant="primary">comprar</Button>
+            <Link to={`/item/${elemento.id}`}>
+               <Button variant="primary">Detalle</Button>
+            </Link>
         </Card.Body>
         
     </Card>
