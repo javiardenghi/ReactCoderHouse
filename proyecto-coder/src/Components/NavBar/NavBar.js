@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 import  DropdownButton  from 'react-bootstrap/DropdownButton';
 import  Dropdown  from 'react-bootstrap/Dropdown';
 import  Card  from 'react-bootstrap/Card';
-
+import  Button  from 'react-bootstrap/Button';
 function NavBar() {
 
    
@@ -42,7 +42,13 @@ function NavBar() {
                 
                 
             </Nav>
-            <CartWidget/>
+                <Link to="/Carrito">
+                    <div style={{ paddingLeft: 15}}>
+                    <Button variant="light" >
+                    <img src="https://img.icons8.com/material-rounded/24/000000/shopping-cart.png" alt=""/>
+                    </Button>
+                    </div>
+                </Link>   
             </Navbar.Collapse>
         </Container>
         </Navbar>

@@ -1,20 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ItemCount from './Components/ItemCount/ItemCount.js';
+import CartWidget from './Components/CartWidget/CartWidget.js';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer.js';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer.js';
 import NavBar from './Components/NavBar/NavBar.js';
 
 function App() {
 
-  function onAdd() {
-
-    alert ("agregado!")
-    
- }
+  
 
   return (
     <>
+    
     <BrowserRouter>
           <NavBar />
           <Switch>
@@ -30,7 +27,10 @@ function App() {
                 <ItemDetailContainer />
               </Route>
 
-              <ItemCount initial={1} stock= {10} onAdd={onAdd} />
+              <Route exact path="/carrito">
+                <CartWidget />
+              </Route>
+              
           </Switch>    
     </BrowserRouter>      
     </>

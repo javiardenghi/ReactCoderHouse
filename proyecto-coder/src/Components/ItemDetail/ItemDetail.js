@@ -1,8 +1,24 @@
 import React from 'react'
 import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
+import ItemCount from '../ItemCount/ItemCount';
+import {useState,useEffect} from "react"
 
 function ItemDetail({producto}) {
+const [cantidad, setCantidad] = useState(0)
+       
+
+
+        function onAdd(count) {
+            alert (`Agregado correctamente ${count} item al Carrito`)
+            setCantidad(count) 
+        }
+
+
+        useEffect(() => {
+           console.log(cantidad)
+        }, [cantidad])
+    
+    
 
     return (
         <>
@@ -15,7 +31,7 @@ function ItemDetail({producto}) {
                     {articulos.precio}<br/>
                     {articulos.descripciones} 
                 </Card.Text>
-                <Button variant="success">Comprar</Button>
+                <ItemCount initial={1} stock= {10} onAdd={onAdd} />
             </Card.Body>
         </Card>)}
 
