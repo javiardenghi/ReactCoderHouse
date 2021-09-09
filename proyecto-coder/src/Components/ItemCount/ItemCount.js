@@ -2,11 +2,10 @@ import React from 'react'
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import {useState} from "react"
-import { Link } from 'react-router-dom'
  
 function ItemCount({initial, stock, onAdd}) {
-    const  [count, setCount] = useState(initial)
-    const [buttonText, setButtonText] = useState(true)
+ const  [count, setCount] = useState(initial)
+   
  function suma() {
      if (stock > count) {
         setCount(count + 1)
@@ -21,7 +20,7 @@ function ItemCount({initial, stock, onAdd}) {
 function setOnAdd() {
     onAdd(count)
     setCount(initial)
-    setButtonText(false)
+    
 }
 
     return (
@@ -34,12 +33,8 @@ function setOnAdd() {
                     <Button variant="primary" onClick={resta}>-</Button>
                     <br></br>
 
-                   {
-                       buttonText ? <Button variant="primary" onClick={setOnAdd} >Agregar</Button>
-                       :<Link to="/carrito"> 
-                            <Button variant="primary" >Terminar compra</Button>
-                        </Link>
-                   }
+                   
+                    <Button variant="primary" onClick={setOnAdd}>Agregar</Button>
                     
 
                 </Card.Body>

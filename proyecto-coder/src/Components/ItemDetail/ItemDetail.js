@@ -2,17 +2,21 @@ import React from 'react'
 import Card from "react-bootstrap/Card"
 import ItemCount from '../ItemCount/ItemCount';
 import {useState,useEffect} from "react"
+import { Link } from 'react-router-dom'
+import Button from "react-bootstrap/Button"
+
 
 function ItemDetail({producto}) {
-const [cantidad, setCantidad] = useState(0)
-       
 
+
+        const [cantidad, setCantidad] = useState(0)
+        const [condicion, setCondicion] = useState(false)
 
         function onAdd(count) {
             alert (`Agregado correctamente ${count} item al Carrito`)
             setCantidad(count) 
+            setCondicion(true)
         }
-
 
         useEffect(() => {
            console.log(cantidad)
@@ -31,7 +35,14 @@ const [cantidad, setCantidad] = useState(0)
                     {articulos.precio}<br/>
                     {articulos.descripciones} 
                 </Card.Text>
-                <ItemCount initial={1} stock= {10} onAdd={onAdd} />
+                {
+                    condicion ?
+                    <Link to="/carrito"> 
+                    <Button variant="success" >Terminar compra</Button>
+                    </Link>
+                    :<ItemCount initial={1} stock= {10} onAdd={onAdd} />
+                }
+                
             </Card.Body>
         </Card>)}
 
