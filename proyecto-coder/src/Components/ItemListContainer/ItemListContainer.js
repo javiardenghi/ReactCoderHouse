@@ -2,7 +2,7 @@ import React from 'react'
 import ItemList from '../ItemList/ItemList'
 import {useEffect, useState} from "react"
 import {useParams} from "react-router-dom"
-
+import  Spinner  from 'react-bootstrap/Spinner'
 const descripcion = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus praesentium qui saepe eius quisquam facilis maiores, quidem"
 
 
@@ -27,6 +27,8 @@ function ItemListContainer({greeting}) {
         ]
 
     const [estado, setEstado] = useState([])
+    const [loading, setLoading] = useState(true)
+
     const {category} = useParams()
  
 
@@ -34,6 +36,7 @@ function ItemListContainer({greeting}) {
         setTimeout(() => {
             resolve(lista)
             reject()
+            setLoading(false)
         }, 2000)
         
     })                                                                                                                                                                                                                                                                                                                  
@@ -42,6 +45,7 @@ function ItemListContainer({greeting}) {
             promesa
             .then((x)=>setEstado(x) )
             .catch(console.log("error"))
+        
         }else{
             promesa
             .then((x)=>setEstado(x.filter(el=>category===el.categoria)) )
@@ -55,7 +59,9 @@ function ItemListContainer({greeting}) {
        
         <div> 
             <h1>{greeting}</h1>
-            <ItemList lista={estado}/>     
+            {loading ? <Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner> : <ItemList lista={estado}/>}    
+
+                 
         </div>
     )
 }

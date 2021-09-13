@@ -2,6 +2,7 @@ import React from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {useEffect, useState} from "react"
 import { useParams } from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner'
 //Descripcion del objeto
 const descripcion = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus praesentium qui saepe eius quisquam facilis maiores, quidem"
 
@@ -26,12 +27,15 @@ const detalle = [
 function ItemDetailContainer() {
 
     const [product,setProduct]= useState([])
+    const [loading, setLoading] = useState(true)
+
     const {articulo} = useParams()
 
     const objeto = new Promise ((resolve, reject)=>{ 
             
         setTimeout(() => {
             resolve(detalle)
+            setLoading(false)
         }, 2000);    
         })
  
@@ -45,7 +49,7 @@ function ItemDetailContainer() {
     
     return (
         <div>
-            <ItemDetail producto={product}/>  
+            {loading ? <Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner> : <ItemDetail producto={product}/>}    
         </div>
     )
 }
