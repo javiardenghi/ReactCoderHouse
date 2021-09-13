@@ -1,14 +1,13 @@
 import React from 'react'
 import Card from "react-bootstrap/Card"
 import Button  from 'react-bootstrap/Button'
-import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
 
+
+
 function Item({elemento}) {
-    function onAdd() {
-        alert("agregado!")
-        
-    }
+
+  
     
     return (
 
