@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import CartWidget from './Components/CartWidget/CartWidget.js';
+import Cart from './Components/Cart/Cart.js';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer.js';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer.js';
 import NavBar from './Components/NavBar/NavBar.js';
@@ -29,10 +29,10 @@ function App() {
                   <ItemDetailContainer />
                 </Route>
 
-                <Route exact path="/carrito">
-                  <CartWidget />
+                <Route exact path="/cart">
+                  <Cart />
                 </Route>
-                
+  
             </Switch>    
       </BrowserRouter>  
     </CartContextProvider>

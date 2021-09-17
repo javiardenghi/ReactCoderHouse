@@ -19,7 +19,7 @@ function Item({elemento}) {
         <Card.Body>
             <Card.Title >{elemento.nombre}</Card.Title>
             <Card.Text >
-                {elemento.precio}<br/>
+                ${elemento.precio}<br/>
                 {elemento.descripciones}
             </Card.Text>
             <Link to={`/item/${elemento.id}`}>

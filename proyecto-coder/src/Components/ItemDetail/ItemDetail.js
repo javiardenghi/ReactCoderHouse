@@ -34,12 +34,12 @@ function ItemDetail({producto}) {
                 <Card.Title>{articulos.nombre}</Card.Title>
                 <Card.Img variant="top" src={articulos.picturUrl}  />
                 <Card.Text>
-                    {articulos.precio}<br/>
+                    ${articulos.precio}<br/>
                     {articulos.descripciones} 
                 </Card.Text>
                 {
                     condicion ?
-                    <Link to="/carrito"> 
+                    <Link to="/cart"> 
                     <Button variant="success" >Terminar compra</Button>
                     </Link>
                     :<ItemCount initial={1} stock= {10} onAdd={onAdd} />

@@ -30,14 +30,10 @@ function setOnAdd() {
                     <Card.Title>Producto</Card.Title>
                     <Button variant="primary" onClick={suma}>+</Button>
                     <span>{count}</span>
-                    <Button variant="primary" onClick={resta}>-</Button>
-                    <br></br>
-
-                   
-                    <Button variant="primary" onClick={setOnAdd}>Agregar</Button>
-                    
+                    <Button variant="primary" onClick={resta} >-</Button>
 
                 </Card.Body>
+                <Button variant="primary" onClick={setOnAdd} >Agregar</Button>
                 
             </Card>
         </div>
