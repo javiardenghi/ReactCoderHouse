@@ -21,7 +21,7 @@ function Cart() {
         
        setTotal(product.reduce((acc,e)=> acc+e.e.precio*e.quantity,0))
           
-    }, [])
+    }, [product])
 
 
 console.log(product)
