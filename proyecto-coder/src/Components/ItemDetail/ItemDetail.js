@@ -8,7 +8,6 @@ import { useCartContext } from '../../context/cartContext';
 
 
 function ItemDetail({producto}) {
-
         const {addToCart, isInCart}= useCartContext()
 
         const [cantidad, setCantidad] = useState(0)
@@ -18,6 +17,7 @@ function ItemDetail({producto}) {
             alert (`Agregado correctamente ${count} item al Carrito`)
             setCantidad(count) 
             setCondicion(true)
+            
             addToCart(producto, count)
             isInCart(producto.map(e=>e.id))
         }
@@ -31,11 +31,11 @@ function ItemDetail({producto}) {
         {producto.map((articulos,index)=>
         <Card style={{ width: '400px'}} key={index}>
             <Card.Body>
-                <Card.Title>{articulos.nombre}</Card.Title>
-                <Card.Img variant="top" src={articulos.picturUrl}  />
+                <Card.Title>{articulos.data().nombre}</Card.Title>
+                <Card.Img variant="top" src={articulos.data().image}  />
                 <Card.Text>
-                    ${articulos.precio}<br/>
-                    {articulos.descripciones} 
+                    ${articulos.data().precio}<br/>
+                    {articulos.data().descripcion} 
                 </Card.Text>
                 {
                     condicion ?

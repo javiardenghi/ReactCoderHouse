@@ -3,7 +3,7 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import {useEffect, useState} from "react"
 import { useParams } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-//Descripcion del objeto
+import { getFirestore } from '../../service/getFirebase'
 const descripcion = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus praesentium qui saepe eius quisquam facilis maiores, quidem"
 
 const detalle = [
@@ -27,24 +27,20 @@ const detalle = [
 function ItemDetailContainer() {
 
     const [product,setProduct]= useState([])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const {articulo} = useParams()
 
-    const objeto = new Promise ((resolve, reject)=>{ 
-            
-        setTimeout(() => {
-            resolve(detalle)
-            setLoading(false)
-        }, 2000);    
-        })
  
     useEffect(() => {
-        //filtro objetos del array por la Url
-        objeto.then((i)=>{
-            setProduct(i.filter(el=>el.id===articulo))
-        })
-        .catch(console.log("Error del ItemDetailContainer"))
+        const db= getFirestore()
+        const query = db.collection("items").get()
+
+        query.then(data=>setProduct(data.docs.filter(r=>r.id===articulo)))
+
+
+
+
     },[])
     
     return (

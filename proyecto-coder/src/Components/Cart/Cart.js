@@ -19,15 +19,10 @@ function Cart() {
 
     useEffect(() => {
         
-       setTotal(product.reduce((acc,e)=> acc+e.e.precio*e.quantity,0))
+       setTotal(product.reduce((acc,e)=> acc+e.e.data().precio*e.quantity,0))
+    
           
     }, [product])
-
-
-console.log(product)
- 
-     
-    
 
     return (
       
@@ -41,15 +36,15 @@ console.log(product)
               product.map(item=>
                 
              <>
-   
+
             <ListGroup.Item>
             <Card style={{ width: '18rem' }}>
                 
                 <Card.Body>
-                <Card.Img variant="top" src={item.e.picturUrl} />
-                    <Card.Title>{item.e.nombre}</Card.Title>
+                <Card.Img variant="top" src={item.e.data().image} />
+                    <Card.Title>{item.e.data().nombre}</Card.Title>
                     <Card.Text>
-                    {item.e.precio} Cantidad: {item.quantity}
+                    {item.e.data().precio} Cantidad: {item.quantity}
                     </Card.Text>
                     <Button variant="primary" onClick={()=>borrar(item.e.id)}>borrar</Button>
                 </Card.Body>

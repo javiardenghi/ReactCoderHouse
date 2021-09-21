@@ -11,7 +11,7 @@ function ItemList({lista}) {
             <Row>
             {
             lista.map((elemento, index)=><Col key={index}>
-            <Item elemento={elemento}/></Col>)
+            <Item elemento={{id: elemento.id,...elemento.data()}}/></Col>)
             }
            
             </Row>
