@@ -44,13 +44,15 @@ function Cart() {
         const db = getFirestore()
         const orders = db.collection("ordenes")
 
-        orders.add(order).then(res => console.log(res))
+        orders.add(order).then(res => alert(`id orden de compra ${res.id}`))
         .catch(console.log("error en orden"))
         .finally(()=>setInfo({
             nombre:"",
             numero:"",
             email:""
         }))
+
+
     }
 
     useEffect(() => {
