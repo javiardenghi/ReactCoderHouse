@@ -17,8 +17,8 @@ function CartWidget() {
 
 
     return(
-        <div style={{ paddingLeft: 15}}>
-            {product.length===0? <></>:<Button variant="light" >
+        <div style={{ paddingLeft: 15}} >
+            {product.length===0? <></>:<Button variant="light" className="categoria">
                  {total}
 
                 <img src="https://img.icons8.com/material-rounded/24/000000/shopping-cart.png" alt=""/>
