@@ -60,7 +60,7 @@ cd carpeta/proyecto-coder/
 npm start
 ```
 ### Opcion 2:
-- Si no clono el repositorio puede entrar a: https://keen-bohr-dc8829.netlify.app/
+- Si no clono el repositorio puede entrar a: https://ecomerce555.netlify.app
 
 # Development
 
